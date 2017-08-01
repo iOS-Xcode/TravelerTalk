@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>497551653934-p9dl180e0svo76f1ssubvv42f6b5ljtf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.497551653934-p9dl180e0svo76f1ssubvv42f6b5ljtf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCvAa4Vt5B8OZDnu35abhBM9D8oJVduvEY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>497551653934</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.wjapp.RealtimeDatabase</string>
+	<key>PROJECT_ID</key>
+	<string>realtimedatabase-165dd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>realtimedatabase-165dd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:497551653934:ios:51d094e300f76a7e</string>
+	<key>DATABASE_URL</key>
+	<string>https://realtimedatabase-165dd.firebaseio.com</string>
+</dict>
+</plist>
