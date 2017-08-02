@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		769B62912E5161604ACD2889 /* Pods_RealtimeDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2473D81C3E0D2F16C3948A3 /* Pods_RealtimeDatabase.framework */; };
+		E62C9DE71F3119670006FD02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E62C9DE61F3119670006FD02 /* GoogleService-Info.plist */; };
 		E68FB97F1F30FA2D00A80763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FB97E1F30FA2D00A80763 /* AppDelegate.swift */; };
 		E68FB9811F30FA2D00A80763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FB9801F30FA2D00A80763 /* ViewController.swift */; };
 		E68FB9841F30FA2D00A80763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E68FB9821F30FA2D00A80763 /* Main.storyboard */; };
 		E68FB9861F30FA2D00A80763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E68FB9851F30FA2D00A80763 /* Assets.xcassets */; };
 		E68FB9891F30FA2D00A80763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E68FB9871F30FA2D00A80763 /* LaunchScreen.storyboard */; };
-		E68FB9911F30FA7F00A80763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E68FB9901F30FA7F00A80763 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DF723740429BD013F45D403 /* Pods-RealtimeDatabase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealtimeDatabase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealtimeDatabase/Pods-RealtimeDatabase.debug.xcconfig"; sourceTree = "<group>"; };
 		96CB0DA521EC204CD8E4FDB5 /* Pods-RealtimeDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealtimeDatabase.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealtimeDatabase/Pods-RealtimeDatabase.release.xcconfig"; sourceTree = "<group>"; };
 		C2473D81C3E0D2F16C3948A3 /* Pods_RealtimeDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealtimeDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E62C9DE61F3119670006FD02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E68FB97B1F30FA2D00A80763 /* RealtimeDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealtimeDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E68FB97E1F30FA2D00A80763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E68FB9801F30FA2D00A80763 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		E68FB9851F30FA2D00A80763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E68FB9881F30FA2D00A80763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E68FB98A1F30FA2D00A80763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E68FB9901F30FA7F00A80763 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		E68FB97D1F30FA2D00A80763 /* RealtimeDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				E68FB9901F30FA7F00A80763 /* GoogleService-Info.plist */,
+				E62C9DE61F3119670006FD02 /* GoogleService-Info.plist */,
 				E68FB97E1F30FA2D00A80763 /* AppDelegate.swift */,
 				E68FB9801F30FA2D00A80763 /* ViewController.swift */,
 				E68FB9821F30FA2D00A80763 /* Main.storyboard */,
@@ -155,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E68FB9891F30FA2D00A80763 /* LaunchScreen.storyboard in Resources */,
-				E68FB9911F30FA7F00A80763 /* GoogleService-Info.plist in Resources */,
+				E62C9DE71F3119670006FD02 /* GoogleService-Info.plist in Resources */,
 				E68FB9861F30FA2D00A80763 /* Assets.xcassets in Resources */,
 				E68FB9841F30FA2D00A80763 /* Main.storyboard in Resources */,
 			);
@@ -383,6 +383,7 @@
 				E68FB98F1F30FA2D00A80763 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
