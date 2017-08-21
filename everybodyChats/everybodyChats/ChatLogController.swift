@@ -22,6 +22,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         guard let uid = FIRAuth.auth()?.currentUser?.uid, let toId = user?.id else {
             return
         }
+        
         let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(uid).child(toId)
         userMessagesRef.observe(.childAdded, with: { (snapshot) in
             let messageId = snapshot.key
@@ -36,6 +37,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
                 
 //                print("We fetched a message from Firebase, and we need to decide whether or not to filter it out:", message.text ?? String())
                 //do we need to attempt filtering anymore?
+                self.messages.append(message)
                     DispatchQueue.main.async {
                         self.collectionView?.reloadData()
                     }

@@ -32,17 +32,17 @@ class MessagesController: UITableViewController {
         }
         let ref = FIRDatabase.database().reference().child("user-messages").child(uid)
         ref.observe(.childAdded, with: { (snapshot) in
-            let userID = snapshot.key
-            FIRDatabase.database().reference().child("user-messages").child(uid).child(userID).observe(.childAdded, with: { (snapshot) in
-               let messageId = snapshot.key
+            let userId = snapshot.key
+            FIRDatabase.database().reference().child("user-messages").child(uid).child(userId).observe(.childAdded, with: { (snapshot) in
+                let messageId = snapshot.key
                 self.fetchMessageWithMessageId(messageId: messageId)
             }, withCancel: nil)
         }, withCancel: nil)
     }
     private func fetchMessageWithMessageId(messageId: String) {
         
-        let messageReference = FIRDatabase.database().reference().child("messages").child(messageId)
-        messageReference.observeSingleEvent(of: .value, with: { (snapshot) in
+        let messagesReference = FIRDatabase.database().reference().child("messages").child(messageId)
+        messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let message = Message()
@@ -58,8 +58,8 @@ class MessagesController: UITableViewController {
         }, withCancel: nil)
     }
     private func attemptReloadOfTable() {
-    self.timer?.invalidate()
-    self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
     }
     var timer: Timer?
     
@@ -73,7 +73,7 @@ class MessagesController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
