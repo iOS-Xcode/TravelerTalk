@@ -12,6 +12,7 @@
 		E6372CC51F426565007379EC /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6372CC41F426565007379EC /* UserCell.swift */; };
 		E656E20A1F3F8E62001ECD26 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656E2091F3F8E62001ECD26 /* ChatLogController.swift */; };
 		E66038831F43658800E8034A /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66038821F43658800E8034A /* ChatMessageCell.swift */; };
+		E6795B4E1F6104A200291DA0 /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6795B4D1F6104A200291DA0 /* ChatInputContainerView.swift */; };
 		E686B02B1F3E26C300581196 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E686B02A1F3E26C300581196 /* Extensions.swift */; };
 		E6AAA7261F3520F4002D1F9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AAA7251F3520F4002D1F9B /* AppDelegate.swift */; };
 		E6AAA7281F3520F4002D1F9B /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AAA7271F3520F4002D1F9B /* MessagesController.swift */; };
@@ -32,8 +33,10 @@
 		DB01030B66383B6F1A244527 /* Pods-everybodyChats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-everybodyChats.release.xcconfig"; path = "Pods/Target Support Files/Pods-everybodyChats/Pods-everybodyChats.release.xcconfig"; sourceTree = "<group>"; };
 		E6372CC11F4256EC007379EC /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E6372CC41F426565007379EC /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		E645F96F1F634167009F3E13 /* everybodyChats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = everybodyChats.entitlements; sourceTree = "<group>"; };
 		E656E2091F3F8E62001ECD26 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		E66038821F43658800E8034A /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		E6795B4D1F6104A200291DA0 /* ChatInputContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInputContainerView.swift; sourceTree = "<group>"; };
 		E686B02A1F3E26C300581196 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E6AAA7221F3520F4002D1F9B /* everybodyChats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = everybodyChats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6AAA7251F3520F4002D1F9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 			children = (
 				E6372CC41F426565007379EC /* UserCell.swift */,
 				E66038821F43658800E8034A /* ChatMessageCell.swift */,
+				E6795B4D1F6104A200291DA0 /* ChatInputContainerView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -117,6 +121,7 @@
 		E6AAA7241F3520F4002D1F9B /* everybodyChats */ = {
 			isa = PBXGroup;
 			children = (
+				E645F96F1F634167009F3E13 /* everybodyChats.entitlements */,
 				E6372CC31F42652D007379EC /* View */,
 				E686B0291F3E24FB00581196 /* Helpers */,
 				E6D386E01F3AAF1500B56870 /* Model */,
@@ -190,6 +195,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = K424H3EQQ6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -280,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E656E20A1F3F8E62001ECD26 /* ChatLogController.swift in Sources */,
+				E6795B4E1F6104A200291DA0 /* ChatInputContainerView.swift in Sources */,
 				E6D386DF1F3AA50700B56870 /* NewMessageController.swift in Sources */,
 				E6AAA7281F3520F4002D1F9B /* MessagesController.swift in Sources */,
 				E6372CC21F4256EC007379EC /* Message.swift in Sources */,
@@ -413,6 +424,7 @@
 			baseConfigurationReference = 1B8A0D4B2A237EF7D01367C2 /* Pods-everybodyChats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = everybodyChats/everybodyChats.entitlements;
 				DEVELOPMENT_TEAM = K424H3EQQ6;
 				INFOPLIST_FILE = everybodyChats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -427,6 +439,7 @@
 			baseConfigurationReference = DB01030B66383B6F1A244527 /* Pods-everybodyChats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = everybodyChats/everybodyChats.entitlements;
 				DEVELOPMENT_TEAM = K424H3EQQ6;
 				INFOPLIST_FILE = everybodyChats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

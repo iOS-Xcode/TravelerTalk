@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>307818728833-f1a3k7c7m53lmqen36g3b6jjo6upos4u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.307818728833-f1a3k7c7m53lmqen36g3b6jjo6upos4u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDMiYlP-TOCBlT5w3jxTkhZV5is4MRIGZw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>307818728833</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.wjapp.TravelerTalk</string>
+	<key>PROJECT_ID</key>
+	<string>travelertalk</string>
+	<key>STORAGE_BUCKET</key>
+	<string>travelertalk.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:307818728833:ios:69e3c17d1ffe1b98</string>
+	<key>DATABASE_URL</key>
+	<string>https://travelertalk.firebaseio.com</string>
+</dict>
+</plist>
