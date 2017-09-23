@@ -175,12 +175,12 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     override var canBecomeFirstResponder: Bool {
         return true
     }
-    func setupKeyboardObservers() {
+    @objc func setupKeyboardObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardDidShow), name: .UIKeyboardDidShow, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: .UIKeyboardWillShow, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
-    func handleKeyboardDidShow() {
+    @objc func handleKeyboardDidShow() {
         if messages.count > 0 {
             let indexPath = IndexPath(item: self.messages.count - 1, section: 0)
             self.collectionView?.scrollToItem(at: indexPath, at: .top, animated: true)
@@ -251,7 +251,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
             cell.bubbleViewLeftAnchor?.isActive = false
         } else {
             //incoming gray
-            cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
+            cell.bubbleView.backgroundColor = UIColor(red: 240, green: 240, blue: 240, alpha: 0)
             cell.textView.textColor = UIColor.black
             cell.profileIamgeView.isHidden = false
             
@@ -293,7 +293,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     var containerViewBottomAnchor: NSLayoutConstraint?
     
-    func handleSend() {
+    @objc func handleSend() {
         let properties = ["text" : inputContainerView.inputTextField.text!]
         sendMessageWithProperties(properties: properties as [String : AnyObject])
     }
@@ -379,7 +379,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         }
         
     }
-    func handleZoomOut(tapGesture: UITapGestureRecognizer) {
+    @objc func handleZoomOut(tapGesture: UITapGestureRecognizer) {
         if let zoomOutImageView = tapGesture.view {
             //need to animate back out to controller
             zoomOutImageView.layer.cornerRadius = 16

@@ -11,7 +11,7 @@ import Firebase
 
 extension EmailRegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func handleSelectProfileImageView() {
+    @objc func handleSelectProfileImageView() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -44,6 +44,9 @@ extension EmailRegisterViewController: UIImagePickerControllerDelegate, UINaviga
             print("Form is not valid")
             return
         }
+        guard let status = statusMessageTextField.text else {
+            return
+        }
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
             if error != nil {
                 print(error ?? String())
@@ -61,7 +64,7 @@ extension EmailRegisterViewController: UIImagePickerControllerDelegate, UINaviga
                     }
                     
                     if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
-                        let values = ["userName" : name, "email": email, "profileImageUrl" : profileImageUrl, "userLocation" : self.currentUserLocation.text]
+                        let values = ["userName" : name, "email": email, "profileImageUrl" : profileImageUrl, "userLocation" : self.currentUserLocation.text, "statusMessage" : status]
                         self.registerUserIntoDatabaseWithUID(uid: (user?.uid)!, values: values as [String : AnyObject])
                     }
                     
@@ -86,7 +89,7 @@ extension EmailRegisterViewController: UIImagePickerControllerDelegate, UINaviga
             user.setValuesForKeys(values)
 //            self.messagesController?.setupNavBarWithUser(user: user)
             
-//            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         })
     }
 }

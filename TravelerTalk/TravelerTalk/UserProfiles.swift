@@ -9,8 +9,10 @@
 import Foundation
 
 class UserProfiles : NSObject {
-    var userName : String?
-    var email : String?
-    var profileImageUrl : String?
-    var userLocation : String?
+    @objc var id : String?
+    @objc var userName : String?
+    @objc var email : String?
+    @objc var profileImageUrl : String?
+    @objc var userLocation : String?
+    @objc var statusMessage : String?
 }

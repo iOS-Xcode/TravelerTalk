@@ -24,6 +24,8 @@ class EmailRegisterViewController: UIViewController, CLLocationManagerDelegate, 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var statusMessageTextField: UITextField!
 
     let locationManager = CLLocationManager()
     
@@ -32,6 +34,7 @@ class EmailRegisterViewController: UIViewController, CLLocationManagerDelegate, 
         self.nameTextField.delegate = self
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
+        self.statusMessageTextField.delegate = self
 //        self.usernameTextField.becomeFirstResponder()
     }
     
@@ -59,7 +62,7 @@ class EmailRegisterViewController: UIViewController, CLLocationManagerDelegate, 
             (placemarks, error) -> Void in
             NSLog("\(placemarks!.first!)")
             if let pm = placemarks?.first {
-                let addressString = pm.locality! + ", " + pm.administrativeArea! + ", " + pm.country!
+                let addressString = pm.subAdministrativeArea! + ", " + pm.administrativeArea! + ", " + pm.country!
                 self.currentUserLocation.text = addressString
             }
 

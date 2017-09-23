@@ -8,21 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		16E3523E844DA8B35766CFF8 /* Pods_TravelerTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 649E3B78EE22DDDEF8B5114E /* Pods_TravelerTalk.framework */; };
+		E63BA2F61F756C3C0012708D /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63BA2F51F756C3C0012708D /* ChatMessageCell.swift */; };
 		E63CEE601F68B42F00705D33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63CEE5F1F68B42F00705D33 /* AppDelegate.swift */; };
 		E63CEE621F68B42F00705D33 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63CEE611F68B42F00705D33 /* LoginViewController.swift */; };
 		E63CEE651F68B42F00705D33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E63CEE631F68B42F00705D33 /* Main.storyboard */; };
 		E63CEE671F68B42F00705D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63CEE661F68B42F00705D33 /* Assets.xcassets */; };
 		E63CEE6A1F68B42F00705D33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E63CEE681F68B42F00705D33 /* LaunchScreen.storyboard */; };
 		E63CEE721F68B53A00705D33 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E63CEE711F68B53A00705D33 /* GoogleService-Info.plist */; };
+		E67650921F7043950005A5BA /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67650911F7043950005A5BA /* UserCell.swift */; };
+		E67650951F7047EE0005A5BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67650941F7047EE0005A5BA /* Extensions.swift */; };
+		E67650971F706A420005A5BA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67650961F706A420005A5BA /* Message.swift */; };
 		E68EEE271F6A4344000C0424 /* EmailRegisterViewController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68EEE261F6A4344000C0424 /* EmailRegisterViewController+Handlers.swift */; };
+		E691F8951F7171D800D27DAD /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E691F8941F7171D800D27DAD /* UserDetailViewController.swift */; };
 		E6A007641F69982600D2AE48 /* EmailRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A007631F69982600D2AE48 /* EmailRegisterViewController.swift */; };
 		E6A007671F699A5400D2AE48 /* UserProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A007661F699A5400D2AE48 /* UserProfiles.swift */; };
+		E6C175DD1F6F2F18009F6C99 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C175DC1F6F2F17009F6C99 /* UsersTableViewController.swift */; };
+		E6CC99B01F7565F800331D9B /* ChatInputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CC99AF1F7565F800331D9B /* ChatInputContainerView.swift */; };
+		E6CC99B21F75663400331D9B /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CC99B11F75663400331D9B /* ChatLogController.swift */; };
+		E6E8AB431F71DFC300A8338E /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8AB421F71DFC300A8338E /* MessagesTableViewController.swift */; };
+		E6E8AB451F71E93700A8338E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8AB441F71E93700A8338E /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		13B0A155B3486304E70D3603 /* Pods-TravelerTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTalk/Pods-TravelerTalk.debug.xcconfig"; sourceTree = "<group>"; };
 		649E3B78EE22DDDEF8B5114E /* Pods_TravelerTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelerTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BAA28D6DCDB5B4DFF0FF4A6 /* Pods-TravelerTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTalk/Pods-TravelerTalk.release.xcconfig"; sourceTree = "<group>"; };
+		E63BA2F51F756C3C0012708D /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		E63CEE5C1F68B42F00705D33 /* TravelerTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelerTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E63CEE5F1F68B42F00705D33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E63CEE611F68B42F00705D33 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -31,9 +42,19 @@
 		E63CEE691F68B42F00705D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E63CEE6B1F68B42F00705D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E63CEE711F68B53A00705D33 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E67650911F7043950005A5BA /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		E67650941F7047EE0005A5BA /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E67650961F706A420005A5BA /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E68C0ABA1F6C706900B9E201 /* TravelerTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TravelerTalk.entitlements; sourceTree = "<group>"; };
 		E68EEE261F6A4344000C0424 /* EmailRegisterViewController+Handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmailRegisterViewController+Handlers.swift"; sourceTree = "<group>"; };
+		E691F8941F7171D800D27DAD /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		E6A007631F69982600D2AE48 /* EmailRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailRegisterViewController.swift; sourceTree = "<group>"; };
 		E6A007661F699A5400D2AE48 /* UserProfiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfiles.swift; sourceTree = "<group>"; };
+		E6C175DC1F6F2F17009F6C99 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		E6CC99AF1F7565F800331D9B /* ChatInputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputContainerView.swift; sourceTree = "<group>"; };
+		E6CC99B11F75663400331D9B /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		E6E8AB421F71DFC300A8338E /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
+		E6E8AB441F71E93700A8338E /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +92,10 @@
 				E63CEE611F68B42F00705D33 /* LoginViewController.swift */,
 				E6A007631F69982600D2AE48 /* EmailRegisterViewController.swift */,
 				E68EEE261F6A4344000C0424 /* EmailRegisterViewController+Handlers.swift */,
+				E6C175DC1F6F2F17009F6C99 /* UsersTableViewController.swift */,
+				E691F8941F7171D800D27DAD /* UserDetailViewController.swift */,
+				E6E8AB421F71DFC300A8338E /* MessagesTableViewController.swift */,
+				E6CC99B11F75663400331D9B /* ChatLogController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -96,6 +121,9 @@
 		E63CEE5E1F68B42F00705D33 /* TravelerTalk */ = {
 			isa = PBXGroup;
 			children = (
+				E67650931F7047C90005A5BA /* Helpers */,
+				E67650901F7043670005A5BA /* View */,
+				E68C0ABA1F6C706900B9E201 /* TravelerTalk.entitlements */,
 				E6A007651F699A2C00D2AE48 /* Model */,
 				E60A71A71F68DB1800515FE1 /* Controllers */,
 				E63CEE711F68B53A00705D33 /* GoogleService-Info.plist */,
@@ -108,9 +136,29 @@
 			path = TravelerTalk;
 			sourceTree = "<group>";
 		};
+		E67650901F7043670005A5BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E67650911F7043950005A5BA /* UserCell.swift */,
+				E6E8AB441F71E93700A8338E /* MessageCell.swift */,
+				E6CC99AF1F7565F800331D9B /* ChatInputContainerView.swift */,
+				E63BA2F51F756C3C0012708D /* ChatMessageCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E67650931F7047C90005A5BA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E67650941F7047EE0005A5BA /* Extensions.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		E6A007651F699A2C00D2AE48 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E67650961F706A420005A5BA /* Message.swift */,
 				E6A007661F699A5400D2AE48 /* UserProfiles.swift */,
 			);
 			name = Model;
@@ -146,14 +194,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "seokhyun kim";
 				TargetAttributes = {
 					E63CEE5B1F68B42F00705D33 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = K424H3EQQ6;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -248,9 +300,19 @@
 			files = (
 				E6A007671F699A5400D2AE48 /* UserProfiles.swift in Sources */,
 				E63CEE621F68B42F00705D33 /* LoginViewController.swift in Sources */,
+				E6C175DD1F6F2F18009F6C99 /* UsersTableViewController.swift in Sources */,
+				E67650971F706A420005A5BA /* Message.swift in Sources */,
+				E67650951F7047EE0005A5BA /* Extensions.swift in Sources */,
+				E6E8AB451F71E93700A8338E /* MessageCell.swift in Sources */,
+				E63BA2F61F756C3C0012708D /* ChatMessageCell.swift in Sources */,
 				E6A007641F69982600D2AE48 /* EmailRegisterViewController.swift in Sources */,
+				E691F8951F7171D800D27DAD /* UserDetailViewController.swift in Sources */,
 				E63CEE601F68B42F00705D33 /* AppDelegate.swift in Sources */,
 				E68EEE271F6A4344000C0424 /* EmailRegisterViewController+Handlers.swift in Sources */,
+				E6CC99B21F75663400331D9B /* ChatLogController.swift in Sources */,
+				E6CC99B01F7565F800331D9B /* ChatInputContainerView.swift in Sources */,
+				E6E8AB431F71DFC300A8338E /* MessagesTableViewController.swift in Sources */,
+				E67650921F7043950005A5BA /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +348,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -294,7 +358,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -317,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -336,7 +404,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -344,7 +414,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -361,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -374,6 +448,7 @@
 			baseConfigurationReference = 13B0A155B3486304E70D3603 /* Pods-TravelerTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TravelerTalk/TravelerTalk.entitlements;
 				DEVELOPMENT_TEAM = K424H3EQQ6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -383,7 +458,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wjapp.TravelerTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -392,6 +468,7 @@
 			baseConfigurationReference = 7BAA28D6DCDB5B4DFF0FF4A6 /* Pods-TravelerTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TravelerTalk/TravelerTalk.entitlements;
 				DEVELOPMENT_TEAM = K424H3EQQ6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -401,7 +478,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wjapp.TravelerTalk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

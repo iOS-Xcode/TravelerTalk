@@ -15,6 +15,7 @@ class NewMessageController: UITableViewController {
     var users = [User]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("newMessageController")
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         fetchUser()
