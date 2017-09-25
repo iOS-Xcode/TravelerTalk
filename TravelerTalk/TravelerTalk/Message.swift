@@ -22,7 +22,7 @@ class Message: NSObject {
     var videoUrl: String?
 
     func chatPartnerId() -> String? {
-        return fromId == FIRAuth.auth()?.currentUser?.uid ? toId : fromId
+        return fromId == Auth.auth().currentUser?.uid ? toId : fromId
     }
     init(dictionary: [String: AnyObject]) {
         super.init()

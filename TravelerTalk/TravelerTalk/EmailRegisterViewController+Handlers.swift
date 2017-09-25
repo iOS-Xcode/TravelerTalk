@@ -47,7 +47,8 @@ extension EmailRegisterViewController: UIImagePickerControllerDelegate, UINaviga
         guard let status = statusMessageTextField.text else {
             return
         }
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
+        //Sign up new users
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error) in
             if error != nil {
                 print(error ?? String())
                 return
@@ -55,14 +56,16 @@ extension EmailRegisterViewController: UIImagePickerControllerDelegate, UINaviga
             
             //successfully authenticated user
             let imageName = NSUUID().uuidString
-            let storageRef = FIRStorage.storage().reference().child("profile_images").child("\(imageName).png")
+            //Create reference.
+            let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
             if let profileImage = self.profileImageView.image, let uploadData = UIImageJPEGRepresentation(profileImage, 0.1) {
-                storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                //Upload from data in memory
+                storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
                         print(error ?? String())
                         return
                     }
-                    
+                    // Fetch the download URL
                     if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
                         let values = ["userName" : name, "email": email, "profileImageUrl" : profileImageUrl, "userLocation" : self.currentUserLocation.text, "statusMessage" : status]
                         self.registerUserIntoDatabaseWithUID(uid: (user?.uid)!, values: values as [String : AnyObject])
@@ -72,13 +75,19 @@ extension EmailRegisterViewController: UIImagePickerControllerDelegate, UINaviga
             }
             
         })
-        print(123)
     }
     
     private func registerUserIntoDatabaseWithUID(uid: String, values: [String: AnyObject]) {
-        let ref = FIRDatabase.database().reference()
+        let ref = Database.database().reference()
         let usersReference = ref.child("users").child(uid)
-        //
+        /* Sample
+         HiWcqEzmLvM3lFQxbqxexGDeq2G2
+         email: "ggg@naver.com"
+         profileImageUrl: "https://firebasestorage.googleapis.com/v0/b/tra..."
+         userLocation: "San Francisco, CA, United States"
+         userName: "ggg"
+         */
+        //Update specific fields
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             if err != nil {
                 print(err ?? String())

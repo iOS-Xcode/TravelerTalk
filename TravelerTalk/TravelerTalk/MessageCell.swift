@@ -38,10 +38,10 @@ class MessageCell: UITableViewCell {
     private func setupNameAndProfileImage() {
         
         if let id = message?.chatPartnerId() {
-            let ref = FIRDatabase.database().reference().child("users").child(id)
+            let ref = Database.database().reference().child("users").child(id)
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    self.userName?.text = dictionary["name"] as? String
+                    self.userName.text = dictionary["userName"] as? String
                     if let profileImageUrl = dictionary["profileImageUrl"] as? String {
                         self.profileImageView.loadImageUsingCacheWithString(urlString: profileImageUrl)
                     }

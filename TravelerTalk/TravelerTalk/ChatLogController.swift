@@ -21,14 +21,14 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     var messages = [Message]()
     
     func observeMessages() {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid, let toId = user?.id else {
+        guard let uid = Auth.auth().currentUser?.uid, let toId = user?.id else {
             return
         }
         
-        let userMessagesRef = FIRDatabase.database().reference().child("user-messages").child(uid).child(toId)
+        let userMessagesRef = Database.database().reference().child("user-messages").child(uid).child(toId)
         userMessagesRef.observe(.childAdded, with: { (snapshot) in
             let messageId = snapshot.key
-            let messagesRef = FIRDatabase.database().reference().child("messages").child(messageId)
+            let messagesRef = Database.database().reference().child("messages").child(messageId)
             messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
                 guard let dictionary = snapshot.value as? [String:AnyObject] else {
                     return
@@ -67,7 +67,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         return chatInputContainerView
     }()
     
-    func handleUploadTap() {
+    @objc func handleUploadTap() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.allowsEditing = true
         imagePickerController.delegate = self
@@ -79,21 +79,23 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("imagePickerController")
         if let videoUrl = info[UIImagePickerControllerMediaURL] as? NSURL {
             //we selected a video
             handleVideoSelectedForUrl(url: videoUrl)
             
         } else {
             //we selected an image
-            handleImageSelectedForInfo(info: info)
+            handleImageSelectedForInfo(info: info as [String : AnyObject])
             
         }
         dismiss(animated: true, completion: nil)
     }
+
     private func handleVideoSelectedForUrl(url: NSURL) {
         let filename = NSUUID().uuidString + "mov"
-        let uploadTask = FIRStorage.storage().reference().child("message_movies").child(filename).putFile(url as URL, metadata: nil, completion: { (metadata, error) in
+        let uploadTask = Storage.storage().reference().child("message_movies").child(filename).putFile(from: url as URL, metadata: nil, completion: { (metadata, error) in
             if error != nil {
                 print("Failed upload of video:", error ?? String())
                 return
@@ -152,9 +154,9 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     //check this function.
     private func uploadToFirebaseStorageUsingImage(image: UIImage, completion: @escaping (_ imageUrl: String) -> ()) {
         let imageName = NSUUID().uuidString
-        let ref = FIRStorage.storage().reference().child("message_images").child(imageName)
+        let ref = Storage.storage().reference().child("message_images").child(imageName)
         if let uploadData = UIImageJPEGRepresentation(image, 0.2) {
-            ref.put(uploadData, metadata: nil, completion: { (metadata, error) in
+            ref.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                 if error != nil {
                     print("Failed to upload image", error ?? String())
                     return
@@ -241,7 +243,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
             cell.profileIamgeView.loadImageUsingCacheWithString(urlString: profileImageUrl)
         }
         
-        if message.fromId == FIRAuth.auth()?.currentUser?.uid {
+        if message.fromId == Auth.auth().currentUser?.uid {
             //outgoing blue
             cell.bubbleView.backgroundColor = ChatMessageCell.blueColor
             cell.textView.textColor = UIColor.white
@@ -304,11 +306,11 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
     }
     
     private func sendMessageWithProperties(properties: [String: AnyObject]) {
-        let ref = FIRDatabase.database().reference().child("messages")
+        let ref = Database.database().reference().child("messages")
         let childRef = ref.childByAutoId()
         //is it there best thing to inclue the name inside of the message node.
         let toId = user!.id!
-        let fromId = FIRAuth.auth()!.currentUser!.uid
+        let fromId = Auth.auth().currentUser!.uid
         let timestamp = NSNumber(value: Int(Date().timeIntervalSince1970))
         
         var values: [String: AnyObject] = ["toId": toId as AnyObject, "fromId": fromId as AnyObject, "timestamp" :timestamp as AnyObject]
@@ -323,10 +325,10 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
                 return
             }
             self.inputContainerView.inputTextField.text = nil
-            let userMessageRef = FIRDatabase.database().reference().child("user-messages").child(fromId).child(toId)
+            let userMessageRef = Database.database().reference().child("user-messages").child(fromId).child(toId)
             let messageId = childRef.key
             userMessageRef.updateChildValues([messageId: 1])
-            let recipientUserMessagesRef = FIRDatabase.database().reference().child("user-messages").child(toId).child(fromId)
+            let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toId).child(fromId)
             recipientUserMessagesRef.updateChildValues([messageId: 1])
             
         }

@@ -80,6 +80,7 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         dismiss(animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+         print("imagePickerController")
         if let videoUrl = info[UIImagePickerControllerMediaURL] as? NSURL {
             //we selected a video
             handleVideoSelectedForUrl(url: videoUrl)

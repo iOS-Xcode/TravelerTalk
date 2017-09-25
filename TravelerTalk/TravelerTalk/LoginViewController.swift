@@ -69,8 +69,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, UITextFie
         guard let accessTokenString = accessToken?.tokenString else {
             return
         }
-        let credentials = FIRFacebookAuthProvider.credential(withAccessToken: accessTokenString)
-        FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        
+        //Sign in existing users
+        Auth.auth().signIn(with: credentials, completion: { (user, error) in
             if error != nil {
                 print("Something went wrong with out FB user : ", error ?? "")
                 return
@@ -117,7 +119,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, UITextFie
             print("Form is not valid")
             return
         }
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+        //Sign in existing users
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 print(error ?? String())
                 return

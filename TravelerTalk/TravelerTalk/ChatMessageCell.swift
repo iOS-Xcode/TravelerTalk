@@ -33,7 +33,7 @@ class ChatMessageCell: UICollectionViewCell {
     var playerLayer: AVPlayerLayer?
     var player: AVPlayer?
     
-    func handlePlay() {
+    @objc func handlePlay() {
         if let videoUrlString = message?.videoUrl, let url = NSURL(string: videoUrlString) {
             player = AVPlayer(url: url as URL)
             
@@ -68,7 +68,6 @@ class ChatMessageCell: UICollectionViewCell {
     }()
     
     static let blueColor = UIColor(r: 0, g: 137, b: 249)
-//    static let blueColor = UIColor(red: 0, green: 137, blue: 249, alpha: 0)
     let bubbleView: UIView = {
         let view = UIView()
         view.backgroundColor = blueColor

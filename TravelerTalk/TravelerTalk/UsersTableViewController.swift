@@ -17,7 +17,7 @@ class UsersTableViewController: UITableViewController {
     
     @IBAction func handleLogout(_ sender: Any) {
         do {
-            try FIRAuth.auth()?.signOut()
+            try Auth.auth().signOut()
         } catch let logoutError {
             print("really?", logoutError)
         }
@@ -37,9 +37,11 @@ class UsersTableViewController: UITableViewController {
     var snapShotKey : String?
     
     func fetchUser() {
-        FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+        //Read on path and observe
+        Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
             print(snapshot)
             print("called")
+            
             //A FIRDataSnapshot contains data from a Firebase Database location. Any time you read Firebase data, you receive the data as a FIRDataSnapshot.
             
             //Returns the contents of this data snapshot as native types. var value: Any? { get }
@@ -66,7 +68,7 @@ class UsersTableViewController: UITableViewController {
     
     func checkIfUserIsLoggedIn() {
         //user is not logged in`
-        if FIRAuth.auth()?.currentUser?.uid == nil {
+        if Auth.auth().currentUser?.uid == nil {
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
         } else {
             fetchUserAndSetupNavBarTitle()
@@ -74,11 +76,11 @@ class UsersTableViewController: UITableViewController {
     }
     
     func fetchUserAndSetupNavBarTitle() {
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             //for some reason uid = nil
             return
         }
-        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 self.navigationItem.title = dictionary["userName"] as? String
 //                print("userName.navi = ", self.navigationItem.title)

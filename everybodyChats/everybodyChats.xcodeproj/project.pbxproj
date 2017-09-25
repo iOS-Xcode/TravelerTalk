@@ -193,7 +193,6 @@
 				TargetAttributes = {
 					E6AAA7211F3520F4002D1F9B = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = K424H3EQQ6;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -437,7 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = everybodyChats/everybodyChats.entitlements;
-				DEVELOPMENT_TEAM = K424H3EQQ6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = everybodyChats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wjapp.everybodyChats;
@@ -452,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = everybodyChats/everybodyChats.entitlements;
-				DEVELOPMENT_TEAM = K424H3EQQ6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = everybodyChats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wjapp.everybodyChats;

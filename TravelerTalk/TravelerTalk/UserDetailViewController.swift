@@ -27,7 +27,7 @@ class UserDetailViewController: UIViewController {
         guard let chatPartnerId = self.snapShotKey else {
             return
         }
-        let ref = FIRDatabase.database().reference().child("users").child(chatPartnerId)
+        let ref = Database.database().reference().child("users").child(chatPartnerId)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             print(snapshot)
             guard let dictionary = snapshot.value as? [String: AnyObject]
