@@ -122,12 +122,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, UITextFie
         //Sign in existing users
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                print(error ?? String())
+                print(error ?? "")
                 return
             }
             //successfully logged in our user
             NSLog("Login with UserID and Password")
-            self.usersTableViewController?.fetchUserAndSetupNavBarTitle()
+//            self.usersTableViewController?.fetchUserAndSetupNavBarTitle()
+//            self.usersTableViewController?.fetchUser()
+//            self.usersTableViewController?.tableView.reloadData()
             self.presentingViewController?.dismiss(animated: true, completion: nil)
             
         })

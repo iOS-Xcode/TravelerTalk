@@ -10,10 +10,11 @@ import UIKit
 import Firebase
 
 class UsersTableViewController: UITableViewController {
-    
+    // First View Controller
     //    let cellId = "cellId"
     var users = [UserProfiles]()
     var snapShotKeys = Array<String>()
+    var currentUserProfile : UserProfiles?
     
     @IBAction func handleLogout(_ sender: Any) {
         do {
@@ -29,9 +30,13 @@ class UsersTableViewController: UITableViewController {
         self.present(loginViewController, animated: true, completion: nil)
         
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        self.users.removeAll()
         fetchUser()
+        print("viewWillAppear")
+        
+    }
+    override func viewDidLoad() {
         checkIfUserIsLoggedIn()
     }
     var snapShotKey : String?
@@ -46,17 +51,18 @@ class UsersTableViewController: UITableViewController {
             
             //Returns the contents of this data snapshot as native types. var value: Any? { get }
             if let dictionary = snapshot.value as? [String:AnyObject] {
-                let users = UserProfiles()
+                let user = UserProfiles()
                 print("SNAP KEY", snapshot.key) //unique string
                 self.snapShotKeys.append(snapshot.key)
-//                print("SNAP Value", snapshot.value) //dictionary
+                //                print("SNAP Value", snapshot.value) //dictionary
                 //The key of the location that generated this FIRDataSnapshot.
                 //                users.userName = snapshot.key
                 
                 //if you use this setter, your app will crash if your class properties don't exactly match up with the firebase dictionary keys
-                users.setValuesForKeys(dictionary)
-                print("users = ", users)
-                self.users.append(users)
+                //All of keys and values matching
+                user.setValuesForKeys(dictionary)
+                print("users = ", user)
+                self.users.append(user)
                 print("SEIF USER = ",self.users)
                 //this will crash because of background thread, so lets use dispatch_async to fix
                 DispatchQueue.main.async {
@@ -64,32 +70,78 @@ class UsersTableViewController: UITableViewController {
                 }
             }
         })
+        self.fetchUserAndSetupNavBarTitle()
     }
     
-    func checkIfUserIsLoggedIn() {
-        //user is not logged in`
-        if Auth.auth().currentUser?.uid == nil {
-            perform(#selector(handleLogout), with: nil, afterDelay: 0)
-        } else {
-            fetchUserAndSetupNavBarTitle()
+        func checkIfUserIsLoggedIn() {
+            //user is not logged in`
+            if Auth.auth().currentUser?.uid == nil {
+                perform(#selector(handleLogout), with: nil, afterDelay: 0)
+            }
         }
-    }
     
     func fetchUserAndSetupNavBarTitle() {
         guard let uid = Auth.auth().currentUser?.uid else {
             //for some reason uid = nil
             return
         }
+        //Read data only once without observe becouse of SingleEvent
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 self.navigationItem.title = dictionary["userName"] as? String
-//                print("userName.navi = ", self.navigationItem.title)
+                self.currentUserProfile?.userName = dictionary["userName"] as? String
                 let user = UserProfiles()
                 user.setValuesForKeys(dictionary)
-                //                self.setupNavBarWithUser(user: user)
+                self.setupNavBarWithUser(user: user)
             }
             
         }, withCancel: nil)
+    }
+    
+    func setupNavBarWithUser(user: UserProfiles) {
+        //tableView.reloadData()
+        let titleView = UIView()
+        titleView.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        //        titleView.backgroundColor = UIColor.red
+        
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        titleView.addSubview(containerView)
+        
+        let profileImageView = UIImageView()
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.layer.cornerRadius = 20
+        profileImageView.clipsToBounds = true
+        
+        if let profileImageUrl = user.profileImageUrl {
+            profileImageView.loadImageUsingCacheWithString(urlString: profileImageUrl)
+        }
+        containerView.addSubview(profileImageView)
+        //iOS 9 constraint anchors
+        //need x, y, width, height anchors
+        profileImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        profileImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        let nameLabel = UILabel()
+        
+        containerView.addSubview(nameLabel)
+        nameLabel.text = user.userName
+//        self.currentUserString = user.userName!
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        //need x, y, width, height anchors
+        nameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8).isActive = true
+        nameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+        nameLabel.heightAnchor.constraint(equalTo: profileImageView.heightAnchor).isActive = true
+        
+        containerView.centerXAnchor.constraint(equalTo: titleView.centerXAnchor).isActive = true
+        containerView.centerYAnchor.constraint(equalTo: titleView.centerYAnchor).isActive = true
+        self.navigationItem.titleView = titleView
+        
+        //        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showChatController)))
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,26 +153,33 @@ class UsersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+//        print("users.count", users.count)
+//        if section == 1 {
+//            return self.users.count - 1
+//        } else {
+//            return 1
+//        }
         return users.count
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cellForRowAt")
         // let use a hack for now, we actually need to dequeue our cells for memory efficiency
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! UserCell
         let user = users[indexPath.row]
-        cell.userName.text = user.userName
-        cell.userLocation.text = user.userLocation
-        cell.statusMessage.text = user.statusMessage
-        
-        if let profileImageUrl = user.profileImageUrl {
-            cell.profileImageView.loadImageUsingCacheWithString(urlString: profileImageUrl)
-        }
-        // Configure the cell...
-        
+            cell.userName.text = user.userName
+            cell.userLocation.text = user.userLocation
+            cell.statusMessage.text = user.statusMessage
+        print("user.id = ", user.id ?? "")
+            if let profileImageUrl = user.profileImageUrl {
+                cell.profileImageView.loadImageUsingCacheWithString(urlString: profileImageUrl)
+            }
         return cell
     }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
@@ -134,49 +193,13 @@ class UsersTableViewController: UITableViewController {
             detailVC?.snapShotKey = self.snapShotKeys[path!.row]
         }
     }
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "My Profile"
+        } else {
+            return "Frineds"
+        }
+    }
     
 }

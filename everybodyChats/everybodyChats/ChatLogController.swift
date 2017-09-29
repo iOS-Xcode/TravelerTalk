@@ -61,6 +61,9 @@ class ChatLogController :  UICollectionViewController, UITextFieldDelegate, UICo
         setupKeyboardObservers()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear in ChatLogController")
+    }
     lazy var inputContainerView : ChatInputContainerView = {
         let chatInputContainerView = ChatInputContainerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         chatInputContainerView.chatLogController = self

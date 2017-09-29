@@ -25,7 +25,7 @@ class MessageCell: UITableViewCell {
         didSet {
             setupNameAndProfileImage()
             lastMessage?.text = message?.text
-            print("lastMessage = ",(lastMessage?.text)!)
+//            print("lastMessage = ",(lastMessage?.text)!)
             if let seconds = message?.timestamp?.doubleValue {
                 let timestampDate = NSDate.init(timeIntervalSince1970: seconds)
                 let dateFormatter = DateFormatter()

@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		16E3523E844DA8B35766CFF8 /* Pods_TravelerTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 649E3B78EE22DDDEF8B5114E /* Pods_TravelerTalk.framework */; };
+		B91576971F78D9970012E1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B91576961F78D8C10012E1F1 /* Assets.xcassets */; };
 		E63BA2F61F756C3C0012708D /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63BA2F51F756C3C0012708D /* ChatMessageCell.swift */; };
 		E63CEE601F68B42F00705D33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63CEE5F1F68B42F00705D33 /* AppDelegate.swift */; };
 		E63CEE621F68B42F00705D33 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63CEE611F68B42F00705D33 /* LoginViewController.swift */; };
 		E63CEE651F68B42F00705D33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E63CEE631F68B42F00705D33 /* Main.storyboard */; };
-		E63CEE671F68B42F00705D33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E63CEE661F68B42F00705D33 /* Assets.xcassets */; };
 		E63CEE6A1F68B42F00705D33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E63CEE681F68B42F00705D33 /* LaunchScreen.storyboard */; };
 		E63CEE721F68B53A00705D33 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E63CEE711F68B53A00705D33 /* GoogleService-Info.plist */; };
 		E67650921F7043950005A5BA /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67650911F7043950005A5BA /* UserCell.swift */; };
@@ -33,12 +33,12 @@
 		13B0A155B3486304E70D3603 /* Pods-TravelerTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTalk/Pods-TravelerTalk.debug.xcconfig"; sourceTree = "<group>"; };
 		649E3B78EE22DDDEF8B5114E /* Pods_TravelerTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelerTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BAA28D6DCDB5B4DFF0FF4A6 /* Pods-TravelerTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelerTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelerTalk/Pods-TravelerTalk.release.xcconfig"; sourceTree = "<group>"; };
+		B91576961F78D8C10012E1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E63BA2F51F756C3C0012708D /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		E63CEE5C1F68B42F00705D33 /* TravelerTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelerTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E63CEE5F1F68B42F00705D33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E63CEE611F68B42F00705D33 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E63CEE641F68B42F00705D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E63CEE661F68B42F00705D33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E63CEE691F68B42F00705D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E63CEE6B1F68B42F00705D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E63CEE711F68B53A00705D33 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -129,9 +129,9 @@
 				E63CEE711F68B53A00705D33 /* GoogleService-Info.plist */,
 				E63CEE5F1F68B42F00705D33 /* AppDelegate.swift */,
 				E63CEE631F68B42F00705D33 /* Main.storyboard */,
-				E63CEE661F68B42F00705D33 /* Assets.xcassets */,
 				E63CEE681F68B42F00705D33 /* LaunchScreen.storyboard */,
 				E63CEE6B1F68B42F00705D33 /* Info.plist */,
+				B91576961F78D8C10012E1F1 /* Assets.xcassets */,
 			);
 			path = TravelerTalk;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63CEE6A1F68B42F00705D33 /* LaunchScreen.storyboard in Resources */,
-				E63CEE671F68B42F00705D33 /* Assets.xcassets in Resources */,
 				E63CEE651F68B42F00705D33 /* Main.storyboard in Resources */,
+				B91576971F78D9970012E1F1 /* Assets.xcassets in Resources */,
 				E63CEE721F68B53A00705D33 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
