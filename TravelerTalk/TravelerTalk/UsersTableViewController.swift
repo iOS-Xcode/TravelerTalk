@@ -63,7 +63,6 @@ class UsersTableViewController: UITableViewController {
                 user.setValuesForKeys(dictionary)
                 print("users = ", user)
                 self.users.append(user)
-                print("SEIF USER = ",self.users)
                 //this will crash because of background thread, so lets use dispatch_async to fix
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
